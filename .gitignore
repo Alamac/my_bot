@@ -1,0 +1,7 @@
+__pycache__
+.vscode
+bot.log
+*last_reply.txt
+*_city.csv
+*_used_cities.csv
+env
