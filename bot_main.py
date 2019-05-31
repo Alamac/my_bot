@@ -1,8 +1,12 @@
-import logging
-import time
 from datetime import datetime
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from glob import glob
+import logging
+from random import choice
+import time
+
 import ephem
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
 import settings
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
@@ -182,17 +186,24 @@ def cities(bot, update):
         else:
             update.message.reply_text('Нет такого города')
 
+def send_cat(bot, update):
+    cat_list = glob('images/cats/cat*.jp*g')
+    cat_pic = choice(cat_list)
+    bot.send_photo(chat_id=update.message.chat.id, photo=open(cat_pic, 'rb'))
+
 def main():
     mybot = Updater(settings.API_KEY)
     logging.info('Bot starting')
 
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler('start', greet_user))
-    dp.add_handler(MessageHandler(Filters.text, talk_to_me))
     dp.add_handler(CommandHandler("planet",define_constellation))
     dp.add_handler(CommandHandler("wordcount", wordcount))
     dp.add_handler(CommandHandler('next_full_moon', next_full_moon))
     dp.add_handler(CommandHandler('cities', cities))
+    dp.add_handler(CommandHandler('cat', send_cat))
+
+    dp.add_handler(MessageHandler(Filters.text, talk_to_me))
 
     mybot.start_polling()
     mybot.idle()
