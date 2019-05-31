@@ -5,3 +5,4 @@ bot.log
 *_city.csv
 *_used_cities.csv
 env
+settings.py
