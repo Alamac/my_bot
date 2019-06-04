@@ -21,7 +21,7 @@ my_bot - бот для телеграм, обладающим следующим
 ---------
 
 Создайте виртуальное окружение и активируйте его, затем выполните:
-.. code-block: text
+.. code-block:: text
     pip install -r requirements.txt
 
 Положите jpg картинки с котиками в папку images/cats/
@@ -30,7 +30,8 @@ my_bot - бот для телеграм, обладающим следующим
 ---------
 
 Создайте файл settings.py и добавьте туда следующие настройки:
-.. code-block: python
+.. code-block:: python
+
     PROXY = {
     'proxy_url': 'ВАШ УРЛ ДО ПРОКСИ',
     'urllib3_proxy_kwargs': {
@@ -38,12 +39,14 @@ my_bot - бот для телеграм, обладающим следующим
         'password': 'ПАРОЛЬ'
         }
     }
+
     API_KEY = 'API КЛЮЧ ВАШЕГО БОТА'
+
     USER_EMOJI = [':smiley_cat:', ':smiling_imp:', ':panda_face:', ':dog:']
 
 Запуск
 ------
 
 В виртуальном окружении запустите:
-.. code-block: text
+.. code-block:: text
     python3 bot_main.ru
