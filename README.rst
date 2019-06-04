@@ -39,9 +39,7 @@ my_bot - бот для телеграм, обладающим следующим
         'password': 'ПАРОЛЬ'
         }
     }
-
     API_KEY = 'API КЛЮЧ ВАШЕГО БОТА'
-
     USER_EMOJI = [':smiley_cat:', ':smiling_imp:', ':panda_face:', ':dog:']
 
 Запуск
